@@ -14,8 +14,10 @@ public class QuickSort {
    *            Space: O(n)
    * 
    *            PRINCIPLE
-   *            Find a pivot point and place the elements smaller than the pivot
+   *            Find a pivot point, fix it at its correct position
+   *            and place the elements smaller than the pivot
    *            element on the right and greater ones on the left.
+   *            Function is called recursively for left and right half.
    * 
    *            NOTE:
    *            - Divide and conquer algorithm
@@ -30,7 +32,7 @@ public class QuickSort {
   public static void quickSort(int[] arr, int l, int h) {
     if (l < h) {
       // int p = partition(arr, l, h, h);
-      // int p = lombutoPartition(arr, l, h);
+      // int p = lomutoPartition(arr, l, h);
       int p = hoaresPartition(arr, l, h);
       quickSort(arr, l, p - 1);
       quickSort(arr, p + 1, h);
@@ -39,6 +41,7 @@ public class QuickSort {
 
   /* Naive paritition method */
   public static int partition(int[] arr, int l, int h, int p) {
+    // NOTE: "pivot" is given as an input in case of naive parition
     int[] temp = new int[h - l + 1];
     int index = 0;
 
@@ -71,12 +74,14 @@ public class QuickSort {
       arr[i] = temp[i - l];
     }
 
+    // "res" is the pivot index - as all the smaller elements
+    // are placed before "res" and larger one after "res"
     return res;
   }
 
   /* Lomuto partition */
-  public static int lombutoPartition(int[] arr, int l, int h) {
-    // Consider the last element as pivot
+  public static int lomutoPartition(int[] arr, int l, int h) {
+    // NOTE: Consider the last element as pivot
     int pivot = arr[h];
     // "i" is -1 initially
     int i = l - 1;
@@ -100,7 +105,7 @@ public class QuickSort {
 
   /* Hoare parition */
   public static int hoaresPartition(int[] arr, int l, int h) {
-    // Consider the first element as pivot
+    // NOTE: Consider the first element as pivot
     // i = low - 1 and j = high + 1
     // i and j are moved closer to each other
     int pivot = arr[l];
