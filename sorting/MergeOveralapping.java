@@ -32,6 +32,8 @@ public class MergeOveralapping {
       }
     });
 
+    // [2, 4] [1, 3] [4, 5] [6, 10] [7, 9] [1, 5] [6, 10]
+
     int res = 0;
     for (int i = 1; i < n; i++) {
       if (arr[res].end >= arr[i].st) {

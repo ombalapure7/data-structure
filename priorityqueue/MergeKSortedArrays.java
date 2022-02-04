@@ -64,12 +64,18 @@ public class MergeKSortedArrays {
   } 
 
   /**
-   * Time Complexity: O(nk * logk)
+   * Time Complexity: O(k*logk + (n-k)*log(n-k))
    * Space Complexity: O(n*k)
    * 
    * Approach:
-   * - We follow the logic of merge sort
-   * - We pass 2 arrays to a function that returns merged array for k no. of times
+   * - Create a triplet object that contains:
+   *   -> Element's value
+   *   -> Position of array containing the element
+   *   -> Position on element in that array
+   * - Create "min" heap which contains 1st element of every array
+   * - Extract the min value - this will give the smallest value in all the 3 arrays
+   * - Now insert the next element of the same array from which we extracted an element
+   * - Now again extract min and insert the next element from the same array
    * 
    * We have to process total n*k elements and we do an insert/remove operation in a heap which contains k elements
    * So overall complexity for n*k elements will be O(nk * logk)
@@ -78,7 +84,7 @@ public class MergeKSortedArrays {
     ArrayList<Integer> res = new ArrayList<>();
     PriorityQueue<Triplet> pq = new PriorityQueue<Triplet>();
 
-    // Store the 1 value present in every array into the min heap
+    // Store the 1st value present in every array into the "min" heap
     for (int i=0; i<arr.size(); i++) {
       // Initially add the 1st element of every array in the heap
       // value, array position, element index in that array
@@ -91,7 +97,7 @@ public class MergeKSortedArrays {
       Triplet curr = pq.poll();
       res.add(curr.val);
 
-      // Get array and element position
+      // Get array position and element position
       int ap = curr.aPos, vp = curr.vPos;
 
       // Check if we have some elements in the array with given array position (ap)
@@ -133,8 +139,8 @@ public class MergeKSortedArrays {
 class Triplet implements Comparable<Triplet>{
   int val,aPos,vPos;
 
-  // We need to implement Comparable as we have to store the 
-  // elements in the heap values wise
+  // We need to implement Comparable as we have to
+  // store the elements in the heap value wise
   Triplet(int v,int ap, int vp){
     val = v;
     aPos = ap;

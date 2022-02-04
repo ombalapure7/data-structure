@@ -29,6 +29,7 @@ public class MedianOfStream {
       int j = i;
       
       // For every element we have to do O(n) work
+      // Sort the "temp" array whenever a new element comes in
       while (j > 0 && temp[j] < temp[j - 1]) {
         double a = temp[j];
         temp[j] = temp[j - 1];
@@ -51,11 +52,11 @@ public class MedianOfStream {
    * Space Complexity: O(n + m)
    * 
    * Approach: 
-   * - Maintain two containers, first one contain smaller half and second one greater half elements 
-   * - For greater one we can have max heap and smaller one we can have min heap
-   * - Take the max element from min heap and min element from the max heap, and find the average 
-   * - In case odd elements put an extra element in the min heap and print the largest element of the max heap
-   * - If there are even no. elements in total (min + max heap) then find the average of - largest in max heap and smallest in min heap
+   * - Maintain two containers, 1st contains smaller half and 2nd one contains greater half elements
+   * - For greater one we can have "min" heap and smaller one we can have "max" heap
+   * - Take the max element from "min" heap and min element from the "max" heap, and find the average 
+   * - In case odd elements put an extra element in the min heap and print the largest element of the "max" heap
+   * - If there are even no. elements in total (min + max heap) then find the average of - largest in "max" heap and smallest in "min" heap
    */
   public static void medianOfStreamBetter(int arr[], int n) {
     // Contain smaller half elements

@@ -3,7 +3,7 @@ package DSA.priorityqueue;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class PurchasingMaxElement {
+public class PurchasingMaxItems {
 
   // Find the max no. of elements that add up to the sum/value passed to the function
 
@@ -73,7 +73,7 @@ public class PurchasingMaxElement {
     int arr[] = { 2, 6, 3, 12, 56, 8 };
     int sum = 10;
     System.out.println("Max elements we can buy - Naive: " + purchaseMaxElements(arr, arr.length, sum));
-    int newArr[] = { 2, 6, 3, 12, 56, 8 };
+    int newArr[] = { 1,12,5,111,200};
     sum = 10;
     System.out.println("Max elements we can buy - Efficient: " + purchaseMaxElements(newArr, newArr.length, sum));
   }
