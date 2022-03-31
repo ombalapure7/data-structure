@@ -56,12 +56,13 @@ public class EquilibriumPoint {
 
     int leftSum = 0;
     for (int i = 0; i < n; i++) {
-      if (leftSum == sum - arr[i]) {
+      sum -= arr[i];
+
+      if (leftSum == sum) {
         return true;
       }
 
       leftSum += arr[i];
-      sum -= arr[i];
     }
 
     return false;
@@ -70,6 +71,7 @@ public class EquilibriumPoint {
   public static void main(String[] args) {
     int[] arr = { 3, 4, 8, -9, 20, 6 };
     // int[] arr = {2, -2, 4};
+    // int[] arr = { -7, 1, 5, 2, -4, 3, 0 };
     System.out.println("Has equilibrium point - Naive: " + hasEquilibriumPoint(arr, arr.length));
     System.out.println("Has equilibrium point - Better: " + hasEquilibriumPointBetter(arr, arr.length));
   }

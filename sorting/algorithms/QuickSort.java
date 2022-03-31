@@ -32,8 +32,8 @@ public class QuickSort {
   public static void quickSort(int[] arr, int l, int h) {
     if (l < h) {
       // int p = partition(arr, l, h, h);
-      // int p = lomutoPartition(arr, l, h);
-      int p = hoaresPartition(arr, l, h);
+      int p = lomutoPartition(arr, l, h);
+      // int p = hoaresPartition(arr, l, h);
       quickSort(arr, l, p - 1);
       quickSort(arr, p + 1, h);
     }

@@ -46,13 +46,13 @@ public class SumOfEveryWindow {
       sum += arr[i];
     }
 
-    System.out.print(sum + " ");
-
     for (int i=k; i<n; i++) {
       sum += arr[i];
       sum -= arr[i-k];
       System.out.print(sum + " ");
     }
+
+    System.out.println();
   }
 
   public static void main(String[] args) {

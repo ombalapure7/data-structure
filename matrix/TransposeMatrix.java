@@ -2,9 +2,17 @@ package DSA.matrix;
 
 public class TransposeMatrix {
 
-  /*
-   * Time Complexity: O(n^2) 
-   * Space Complexity: O(n^2)
+  /**
+   * @desc Find transpose of a matrix
+   * @param mat
+   * @param n
+   * 
+   * COMPLEXITY:
+   * Time: O(n^2) 
+   * Space: O(n^2)
+   * 
+   * NOTE: In transpose the elements below diagonal are swapped with the ones above the diagonal
+   *  Also In transpose the diagonal element remains the same
    */
   public static void transposeMatrix(int mat[][], int n) {
     // Tranpose: transform R -> C and C -> R

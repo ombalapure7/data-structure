@@ -43,7 +43,7 @@ public class MaxConsecutive {
   }
 
   public static void main(String[] args) {
-    int arr[] = { 0, 1, 1, 0, 1, 0 };
+    int arr[] = { 0, 1, 1, 0, 1, 1, 1, 1, 0 };
     System.out.println("Max Consecutive - Naive: " + maxConsecutiveOnes(arr, arr.length));
     System.out.println("Max Consecutive - Efficient: " + maxConsecutiveOnesBetter(arr, arr.length));
   }

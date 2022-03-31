@@ -73,34 +73,10 @@ public class UnionArray {
       res[count++] = b[j++];
     }
 
-
     // Print the resultant array
     for (int k = 0; k < count; k++) {
       System.out.print(res[k] + " ");
     }
-  }
-
-  /*
-   * Time Complexity: O(n)
-   * Space Complexity: O(1)
-   */
-  public static void unionArray(int[] a, int[] b) {
-    int[] count = new int[256];
-    for (int i=0; i<a.length; i++) {
-      count[a[i]]++;
-    }
-
-    for (int i=0; i<b.length; i++) {
-      count[b[i]]++;
-    }
-
-    for (int i=0; i<256; i++) {
-      if (count[i] >= 1) {
-        System.out.print(i + " ");
-      }
-    }
-
-    System.out.println();
   }
 
   /*
@@ -127,10 +103,9 @@ public class UnionArray {
     // int a[] = { 1, 3, 4, 5, 7 };
     // int b[] = { 2, 3, 5, 6 };
 
-    unionArray(a, b);
-    System.out.println("*************************");
+    System.out.println("##################################");
     System.out.println("No. of distinct elements - Efficient: " + unionHash(a, b));
-    System.out.println("*************************");
+    System.out.println("##################################");
     union(a, b);
   }
 }

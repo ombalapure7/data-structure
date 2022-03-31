@@ -1,18 +1,24 @@
 package DSA.arrays;
 
+import java.util.Arrays;
+
 public class TrappingRainWater {
 
-  // If the array is in ascending/descending manner, 0 units of water will be
-  // collected
-  // Right/Left most bars will be excluded
-
-  /*
-   * Time Complexity: O(n^2)
-   * Space Complexity: O(1)
+  /**
+   * @desc Find the trapped units of water
+   * @param arr
+   * @param n
+   * @return
+   * 
+   *         COMPLEXITY
+   *         Time: O(n^2)
+   *         Space: O(1)
+   * 
+   *         NOTE: If the array is in sorted, 0 units of water will be collected
    */
   public static int trappingRainWater(int arr[], int n) {
     int quantity = 0;
-    
+
     for (int i = 1; i < n - 1; i++) {
       int leftMax = arr[i];
       // Keep track of left bar height
@@ -34,9 +40,22 @@ public class TrappingRainWater {
     return quantity;
   }
 
-  /*
-   * Time Complexity: O(n)
-   * Space Complexity: O(n)
+  /**
+   * @desc
+   * @param arr
+   * @param n
+   * @return
+   * 
+   *         COMPLEXITY
+   *         Time: O(n)
+   *         Space: O(1)
+   * 
+   *         Approach:
+   *         - Compute the left and right max height of the bars separately
+   *         - Once done find value of "Math.min(leftMax[i], rightMax[i]) -
+   *         arr[i]"
+   *         - Start adding up the value calculated from the above step in each
+   *         iteration
    */
   public static int trappingRainWaterBetter(int arr[], int n) {
     // leftMax and rightMax is precomputed

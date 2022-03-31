@@ -57,7 +57,7 @@ public class Frequencies {
     // int arr[] = { 10, 10, 10, 25, 30, 30, 30, 40 };
     int arr[] = { 40, 40, 40, 50, 50 };
     frequencyOfElements(arr, arr.length);
-    System.out.println("********************");
+    System.out.println("###############################");
     frequencyOfElementsOther(arr, arr.length);
   }
 }

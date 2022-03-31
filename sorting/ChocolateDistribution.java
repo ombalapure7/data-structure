@@ -14,7 +14,9 @@ public class ChocolateDistribution {
    * 
    *            Approach:
    *            - Sort the array
-   * 
+   *            - Slide the window of size of "m" over the array
+   *            - Keep on finding the difference(s) of the first and the last
+   *            element of the window && store the result along the way
    */
   public static int chocolateDistribution(int[] arr, int n, int m) {
     if (m > n) {
@@ -22,17 +24,16 @@ public class ChocolateDistribution {
     }
 
     Arrays.sort(arr);
+    System.out.println(Arrays.toString(arr));
     int res = arr[m - 1] - arr[0];
-    int index = 0;
     for (int i = 1; i < n - m + 1; i++) {
-      // res = Math.min(res, arr[i+m-1] - arr[i]);
-      if (res > arr[i + m - 1] - arr[i]) {
-        res = arr[i + m - 1] - arr[i];
-        index = i;
-      }
+      res = Math.min(res, arr[i + m - 1] - arr[i]);
+      // OR
+      // if (res > arr[i + m - 1] - arr[i]) {
+      // res = arr[i + m - 1] - arr[i];
+      // }
     }
 
-    System.out.println("Index: " + index);
     return res;
   }
 

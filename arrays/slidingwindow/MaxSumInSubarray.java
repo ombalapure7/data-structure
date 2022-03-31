@@ -27,7 +27,6 @@ public class MaxSumInSubarray {
     return maxSum;
   }
 
-  
   /**
    * @desc  Maximum sum in a subarray
    * @param arr
@@ -66,6 +65,6 @@ public class MaxSumInSubarray {
     int[] arr = { 1, 8, 30, -5, 20, 7 };
     // OP: 45
     System.out.println("Maximum sum in a subarray - Naive: " + maxConsecutiveSumKNaive(arr, arr.length, 3));
-    System.out.println("Maximum sum in a subarray - Better: " + maxConsecutiveSumKBetter(arr, arr.length, 3));;
+    System.out.println("Maximum sum in a subarray - Better: " + maxConsecutiveSumKBetter(arr, arr.length, 3));
   }
 }

@@ -1,5 +1,6 @@
 package DSA.hashing;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,11 +41,40 @@ public class PariSum {
     }
   }
 
+  /**
+   * @desc Pair sum by sorting array
+   * @param arr
+   * @param n
+   * @param sum
+   * 
+   * COMPLEXITY
+   * Time: O(n*logn) If array is not sorted and O(n) is array is already sorted
+   * Space: O(1)
+   */
+  public static void pairSumArray(int[] arr, int n, int sum) {
+    Arrays.sort(arr);
+    int low = 0, high = arr.length - 1;
+
+    while (low <= high)  {
+      if (arr[low] + arr[high] == sum) {
+        System.out.println(arr[low] + " + " + arr[high] + " = " + sum);
+        low++;
+        high--;
+      } else if (arr[low] + arr[high] > sum) {
+        high--;
+      } else {
+        low++;
+      }
+    }
+  }
+
   public static void main(String[] args) {
     int arr[] = { 8, 3, 4, 9 };
     pairSum(arr, arr.length, 13);
-
+    System.out.println("##################################");
     int newArr[] = { 8, 3, 4, 2, 5 };
-    pairSumHash(newArr, 6);
+    pairSumHash(newArr, 7);
+    System.out.println("##################################");
+    pairSumArray(arr, arr.length, 13);
   }
 }

@@ -7,9 +7,9 @@ public class ArrayOp {
   /*
    * Overall Complexity
    * 
-   * Insert: O(1) 
-   * Search: O(n) for unsorted O(logn) for sorted 
-   * Delete: O(n) Get ith element: O(1) 
+   * Insert: O(1)
+   * Search: O(n) for unsorted O(logn) for sorted
+   * Delete: O(n) Get ith element: O(1)
    * Update ith element: O(1)
    */
 
@@ -34,7 +34,7 @@ public class ArrayOp {
   }
 
   /*
-   * Time Complexity: O(n) 
+   * Time Complexity: O(n)
    * Space Complexity: O(1)
    */
   public static void delete(int arr[], int n, int x) {
@@ -51,7 +51,7 @@ public class ArrayOp {
   }
 
   /*
-   * Time Complexity: O(n) 
+   * Time Complexity: O(n)
    * Space Complexity: O(1)
    */
   public static int search(int arr[], int n, int x) {
@@ -90,5 +90,10 @@ public class ArrayOp {
     System.out.println(Arrays.toString(arr));
 
     System.out.println("Element present at index: " + search(arr, n, 20));
+
+    /* Converting string array to integer array */
+    // String[] str = new String[]{"1,", "2", "3", "4"};
+    // int[] tempArr = Arrays.asList(str).stream().mapToInt(Integer::parseInt).toArray();
+    // System.out.println(Arrays.toString(tempArr));
   }
 }

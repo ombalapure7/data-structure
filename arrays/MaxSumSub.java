@@ -3,7 +3,7 @@ package DSA.arrays;
 public class MaxSumSub {
 
   /*
-   * Time Complexity: O(n^2) 
+   * Time Complexity: O(n^2)
    * Space Complexity: O(1)
    */
   public static int maxSumSubArray(int arr[], int n) {
@@ -20,14 +20,20 @@ public class MaxSumSub {
   }
 
   /*
-   * Time Complexity: O(n) 
+   * Time Complexity: O(n)
    * Space Complexity: O(1)
    */
   public static int maxSumSubArrayBetter(int arr[], int n) {
     int res = arr[0];
     int maxEnding = arr[0];
 
-    for (int i=1; i<n; i++) {
+    if (n == 2) {
+      if (arr[0] > 0 && arr[1] > 0) {
+        return arr[0] + arr[1];
+      }
+    }
+
+    for (int i = 1; i < n; i++) {
       // Compare the addition result with the current element
       // The greater value will be stored
       maxEnding = Math.max(maxEnding + arr[i], arr[i]);
@@ -35,7 +41,7 @@ public class MaxSumSub {
       // then the addition value
       res = Math.max(res, maxEnding);
     }
-    
+
     return res;
   }
 
@@ -44,5 +50,4 @@ public class MaxSumSub {
     System.out.println("Max sum sub array - Naive: " + maxSumSubArray(arr, arr.length));
     System.out.println("Max sum sub array - Efficient: " + maxSumSubArrayBetter(arr, arr.length));
   }
-
 }

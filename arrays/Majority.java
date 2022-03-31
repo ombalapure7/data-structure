@@ -40,11 +40,15 @@ public class Majority {
    * Phase 1 - finds candidate element
    * Phase 2 - checks if the candidate is a majority element 
    *    (Check if a majority element is present actually)
+   * 
+   * NOTE: If there is a majority element for sure in the array
+   * then only 1st step is needed
+   * The second step is for edge case
    */
   public static int majorityElementBetter(int arr[], int n) {
     int res = 0, count = 1;
 
-    // Find a candidate element
+    // Step 1: Find a candidate element
     for (int i = 1; i < n; i++) {
       if (arr[res] == arr[i]) {
         count++;
@@ -52,13 +56,14 @@ public class Majority {
         count--;
       }
 
+      // Change the candidate element
       if (count == 0) {
         count = 1;
         res = i;
       }
     }
 
-    // Find the majority element
+    // Step 2: Find the majority element
     count = 0;
     for (int i = 0; i < n; i++) {
       if (arr[res] == arr[i]) {
@@ -66,6 +71,7 @@ public class Majority {
       }
     }
 
+    // Majority element not found
     if (count <= n / 2) {
       return -1;
     }
@@ -78,5 +84,4 @@ public class Majority {
     System.out.println("Majority Element - Naive: " + majorityElement(arr, arr.length));
     System.out.println("Majority Element - Efficient: " + majorityElementBetter(arr, arr.length));
   }
-  
 }

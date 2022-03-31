@@ -16,17 +16,38 @@ public class MaxInWindow {
    */
   public static void maxInWindow(int[] arr, int n, int k) {
     for (int i = 0; i < n - k + 1; i++) {
-      int max = Integer.MIN_VALUE;
+      // int max = Integer.MIN_VALUE;
+      // for (int j = 0; j < k; j++) {
+      //   if (max < arr[i + j]) {
+      //     max = arr[i + j];
+      //   }
+      // }
+      // System.out.print(max + " ");
+
+      // OR
+
+      int res = 0;
       for (int j = 0; j < k; j++) {
-        if (max < arr[i + j]) {
-          max = arr[i + j];
-        }
+        res = maxElement(arr, 0, i+j);
       }
 
-      System.out.print(max + " ");
+      System.out.print(res + " ");
     }
 
     System.out.println();
+  }
+
+  /**
+   * Helper function to find max element in a window
+   */
+  public static int maxElement(int[] arr, int low, int high) {
+    int max = Integer.MIN_VALUE;
+
+    for (int i=low; i<=high; i++) {
+      max = Math.max(arr[i], max);
+    }
+
+    return max;
   }
 
   /**

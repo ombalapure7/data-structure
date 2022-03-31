@@ -102,10 +102,9 @@ public class IntersectionArray {
     Arrays.sort(a);
     Arrays.sort(b);
 
-    HashSet<Integer> set = new HashSet<>();
-
     int n = a.length, m = b.length;
     int i = 0, j = 0;
+    int res = 0;
 
     while (i < n && j < m) {
       if (a[i] < b[j]) {
@@ -113,14 +112,14 @@ public class IntersectionArray {
       } else if (a[i] > b[j]) {
         j++;
       } else {
-        set.add(a[i]);
+        res++;
+        System.out.print(a[i] + " ");
         i++;
         j++;
       }
     }
 
-    System.out.println(set);
-    System.out.println("No. of distinct and common elements - Good: " + set.size());
+    System.out.println("\nNo. of distinct and common elements - Sorting: " + res);
   }
 
   public static void main(String[] args) {

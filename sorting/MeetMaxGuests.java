@@ -20,8 +20,8 @@ public class MeetMaxGuests {
 
     for (int i = 0; i < n; i++) {
       int res = 0;
-      for (int j = 0; j < n; j++) {
-        if (arr[i] < arr[j]) {
+      for (int j = i; j < n; j++) {
+        if (arr[i] < dep[j]) {
           res++;
         }
       }
@@ -69,11 +69,11 @@ public class MeetMaxGuests {
   }
 
   public static void main(String[] args) {
-    // int arr[] = { 900, 600, 700};
-    // int dep[] = { 1000, 800, 730};
+    int arr[] = { 900, 600, 700};
+    int dep[] = { 1000, 800, 730};
 
-    int arr[] = { 800, 700, 600, 500 };
-    int dep[] = { 840, 820, 830, 530 };
+    // int arr[] = { 800, 700, 600, 500 };
+    // int dep[] = { 840, 820, 830, 530 };
 
     System.out.println("Max guests that can be met - Naive: " + meetMaxGuests(arr, dep, arr.length));
     System.out.println("Max guests that can be met - Better: " + meetMaxGuestsBetter(arr, dep));

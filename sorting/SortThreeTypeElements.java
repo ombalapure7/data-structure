@@ -75,7 +75,7 @@ public class SortThreeTypeElements {
   public static void main(String[] args) {
     int arr[] = new int[] { 0, 1, 1, 2, 0, 1, 1, 2 };
     sort012(arr, arr.length);
-    sort012Better(arr, arr.length);
-    System.out.println(arr);
+    int newArr[] = new int[] { 0, 1, 1, 2, 0, 1, 1, 2 };
+    sort012Better(newArr, newArr.length);
   }
 }
